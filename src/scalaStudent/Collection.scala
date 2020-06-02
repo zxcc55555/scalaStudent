@@ -1,6 +1,6 @@
 package scalaStudent
 
-object git commit -m "first commit" {
+object Collection {
   def main(args: Array[String]): Unit = {
 
   }
