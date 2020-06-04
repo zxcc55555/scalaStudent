@@ -2,7 +2,8 @@ package scalaStudent
 
 object Collection {
   def main(args: Array[String]): Unit = {
-
+    mapTest()
+    listFill
   }
   //创建列表
   // Scala 列表类似于数组，它们所有元素的类型都相同，但是它们也有所不同：
@@ -29,7 +30,7 @@ object Collection {
   //构造列表的两个基本单位是 Nil 和 ::
   //Nil 也可以表示为一个空列表。
   //以上实例我们可以写成如下所示：
-  def ListNil(): Unit ={
+  def listNil(): Unit ={
     // 字符串列表
     val site = "Runoob" :: ("Google" :: ("Baidu" :: Nil))
 
@@ -43,6 +44,35 @@ object Collection {
     val dim = (1 :: (0 :: (0 :: Nil))) ::
       (0 :: (1 :: (0 :: Nil))) ::
       (0 :: (0 :: (1 :: Nil))) :: Nil
+  }
+  def listFill(): Unit ={
+    val site = List.fill(3)("Runoob") // 重复 Runoob 3次
+    println( "site : " + site  )
+
+    val num = List.fill(10)(2)         // 重复元素 2, 10 次
+    val n = List.fill(10)(1)         // 重复元素 2, 10 次
+    println( "num : " + num  )
+    val num2 = n ::: num
+    println( "num2 : " + num2  )
+    val num3 = n :: num
+    println( "num3 : " + num3  )
+  }
+  def listTabulate(): Unit ={
+    // 通过给定的函数创建 5 个元素
+    val squares = List.tabulate(6)(n => n * n)
+    println( "一维 : " + squares  )
+
+    // 创建二维列表
+    val mul = List.tabulate( 4,5 )( _ * _ )
+    println( "多维 : " + mul  )
+  }
+
+  def mapTest(): Unit ={
+    var map : Map[String,String] = Map.empty
+    var map2 = Map("asd"-> "2")
+    map = map++map2
+    map = map.+("asd"-> "1")
+    println(map)
   }
 
 }
